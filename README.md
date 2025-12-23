@@ -123,32 +123,7 @@ Hardcoding prompt strings using Python f-strings (e.g., `f"Translate {text} to F
 
 **Objective:** Build a "Chain Reactor" that takes a raw, messy brain-dump of text, extracts action items, and then drafts an email assigning those tasks. This requires passing the output of Chain A as the input to Chain B.
 
-**Scenario:** You are a project manager who takes messy notes during meetings. You need an AI agent to clean them up and notify the team.
-
-**Step 1: The Extractor Chain**
-* Create a prompt that takes `{raw_notes}` and asks for a bulleted list of action items.
-* Build the chain: `extract_prompt | llm | StrOutputParser()`.
-* Test it with some messy text.
-
-**Step 2: The Drafter Chain**
-* Create a prompt that takes `{action_items}` and drafts a polite professional email to "The Team".
-* Build the chain: `draft_prompt | llm | StrOutputParser()`.
-
-**Step 3: The Sequential Chain (Putting it together)**
-* Use LCEL to link them. We need to ensure the output of Step 1 uses the correct *key* expected by Step 2.
-* *Technical Hint (RunnablePassthrough):* Sometimes you need to pass data through unchanged or rename keys.
-    ```python
-    from langchain_core.runnables import RunnablePassthrough
-    
-    # Composing the full sequence
-    # The first chain's output becomes the input for 'action_items' in the next step
-    full_chain = (
-        {"action_items": extractor_chain} 
-        | drafter_chain
-    )
-    
-    full_chain.invoke({"raw_notes": "Bob needs to fix the server by Tues, Sara check the slide deck, I will order pizza."})
-    ```
+**Refer:** [Build Your First Chain](https://git.generalassemb.ly/applied-ai-and-deep-learning-in-action/Lab-4_1-Build-your-First-Chain)
 
 ## 5. Wrap-Up and Reflection (10 min)
 
