@@ -123,7 +123,7 @@ Hardcoding prompt strings using Python f-strings (e.g., `f"Translate {text} to F
 
 **Objective:** Build a "Chain Reactor" that takes a raw, messy brain-dump of text, extracts action items, and then drafts an email assigning those tasks. This requires passing the output of Chain A as the input to Chain B.
 
-**Refer:** [Build Your First Chain](https://git.generalassemb.ly/applied-ai-and-deep-learning-in-action/Lab-4_1-Build-your-First-Chain)
+**Refer:** [Build Your First Chain](https://github.com/ga-curriculum/lab-4-1-build-your-first-chain)
 
 ## 5. Wrap-Up and Reflection (10 min)
 
